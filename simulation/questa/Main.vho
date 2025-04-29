@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition"
 
--- DATE "04/29/2025 13:25:37"
+-- DATE "04/28/2025 12:10:53"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -95,12 +95,12 @@ ENTITY 	Main IS
 	VSYNC : IN std_logic;
 	HREF : IN std_logic;
 	D : IN std_logic_vector(7 DOWNTO 0);
-	Hsync_VGA : BUFFER std_logic;
-	Vsync_VGA : BUFFER std_logic;
-	R : BUFFER std_logic_vector(3 DOWNTO 0);
-	G : BUFFER std_logic_vector(3 DOWNTO 0);
-	B : BUFFER std_logic_vector(3 DOWNTO 0);
-	oclk : BUFFER std_logic
+	Hsync_VGA : OUT std_logic;
+	Vsync_VGA : OUT std_logic;
+	R : OUT std_logic_vector(3 DOWNTO 0);
+	G : OUT std_logic_vector(3 DOWNTO 0);
+	B : OUT std_logic_vector(3 DOWNTO 0);
+	oclk : OUT std_logic
 	);
 END Main;
 

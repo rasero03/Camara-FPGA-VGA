@@ -1,0 +1,283 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/FPGA/Proy(mod)/simulation/questa
+T_opt
+!s110 1745835110
+Vj_oD<;]h`jCnnmS2]O=j22
+04 7 2 work tb_main tb 1
+=1-f4b52063002f-680f5466-15b-38cc
+R0
+!s12b OEM100
+!s124 OEM10U6 
+o-quiet -auto_acc_if_foreign -work work -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+Emain
+Z2 w1745834994
+Z3 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z4 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z5 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 0
+R1
+Z6 8C:/FPGA/Proy(mod)/Main.vhd
+Z7 FC:/FPGA/Proy(mod)/Main.vhd
+l0
+L5 1
+Vn;6F1BVhg85>iRT4Ve42T3
+!s100 CmNdL4`aGHgH5ln0omiPe2
+Z8 OL;C;2023.3;77
+31
+Z9 !s110 1745835108
+!i10b 1
+Z10 !s108 1745835108.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/Main.vhd|
+Z12 !s107 C:/FPGA/Proy(mod)/Main.vhd|
+!i113 0
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Acomp
+R3
+R4
+R5
+DEx4 work 4 main 0 22 n;6F1BVhg85>iRT4Ve42T3
+!i122 0
+l82
+L19 106
+V:ImzJ3K6YaC8BBLaL5@Rh1
+!s100 7m^zT]1aEdIkL^D<A]nX`1
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Ememoria
+Z15 w1745790317
+R3
+R4
+R5
+!i122 3
+R1
+Z16 8C:/FPGA/Proy(mod)/memoria.vhd
+Z17 FC:/FPGA/Proy(mod)/memoria.vhd
+l0
+L5 1
+V0QbD_HFCd^0Ui[f?eUKC91
+!s100 Pcf@189VaJPfJCnhPVYde2
+R8
+31
+Z18 !s110 1745835109
+!i10b 1
+Z19 !s108 1745835109.000000
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/memoria.vhd|
+Z21 !s107 C:/FPGA/Proy(mod)/memoria.vhd|
+!i113 0
+R13
+R14
+Acomp
+R3
+R4
+R5
+DEx4 work 7 memoria 0 22 0QbD_HFCd^0Ui[f?eUKC91
+!i122 3
+l39
+L16 72
+VeifVC6?UV]L7Y:[4KzUm53
+!s100 9hEU:BOWaQigEN=3EU=lU3
+R8
+31
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14
+Ememory
+R15
+Z22 DPx9 altera_mf 20 altera_mf_components 0 22 =PHfMfICJ5LRSkJ3B_[dW3
+R4
+R5
+!i122 2
+R1
+Z23 8C:/FPGA/Proy(mod)/Memory.vhd
+Z24 FC:/FPGA/Proy(mod)/Memory.vhd
+l0
+L43 1
+VKjJ:L92UOfU83ZiX7`B8C2
+!s100 :LShR28n6eFl;@iToabnj2
+R8
+31
+R18
+!i10b 1
+R10
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/Memory.vhd|
+Z26 !s107 C:/FPGA/Proy(mod)/Memory.vhd|
+!i113 0
+R13
+R14
+Asyn
+R22
+R4
+R5
+DEx4 work 6 memory 0 22 KjJ:L92UOfU83ZiX7`B8C2
+!i122 2
+l60
+L56 41
+VKgXVhKhzbS<4jZR:ocRC03
+!s100 _b7em2:70nI11U@W647UU1
+R8
+31
+R18
+!i10b 1
+R10
+R25
+R26
+!i113 0
+R13
+R14
+Erxdata
+R15
+R3
+R4
+R5
+!i122 1
+R1
+Z27 8C:/FPGA/Proy(mod)/Rxdata.vhd
+Z28 FC:/FPGA/Proy(mod)/Rxdata.vhd
+l0
+L5 1
+V7cek_?h5SKNzm6Am3zE_C0
+!s100 [h6<PJY[KXUVQjGFaTKNb1
+R8
+31
+R9
+!i10b 1
+R10
+Z29 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/Rxdata.vhd|
+Z30 !s107 C:/FPGA/Proy(mod)/Rxdata.vhd|
+!i113 0
+R13
+R14
+Acomp
+R3
+R4
+R5
+DEx4 work 6 rxdata 0 22 7cek_?h5SKNzm6Am3zE_C0
+!i122 1
+l26
+L20 80
+V47g`aZXEQUDe6hiAM24Jn0
+!s100 `MLFDoOeHgF19;]L`T_XM2
+R8
+31
+R9
+!i10b 1
+R10
+R29
+R30
+!i113 0
+R13
+R14
+Etb_main
+Z31 w1745834886
+R3
+R4
+R5
+!i122 5
+R1
+Z32 8C:/FPGA/Proy(mod)/tb_main.vhd
+Z33 FC:/FPGA/Proy(mod)/tb_main.vhd
+l0
+L5 1
+V0G=HP;PZZil`jR:za^H6a2
+!s100 cLj3fmzGnNcN4egl^@0f_3
+R8
+31
+R18
+!i10b 1
+R19
+Z34 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/tb_main.vhd|
+Z35 !s107 C:/FPGA/Proy(mod)/tb_main.vhd|
+!i113 0
+R13
+R14
+Atb
+R3
+R4
+R5
+DEx4 work 7 tb_main 0 22 0G=HP;PZZil`jR:za^H6a2
+!i122 5
+l41
+L8 108
+VT0T7nh^j5I:YL=?l;5[cW2
+!s100 ^zNlKAGT4@Y^O]8Rf2FFZ1
+R8
+31
+R18
+!i10b 1
+R19
+R34
+R35
+!i113 0
+R13
+R14
+Evga_controller
+R15
+R3
+R4
+R5
+!i122 4
+R1
+Z36 8C:/FPGA/Proy(mod)/vga_controller.vhd
+Z37 FC:/FPGA/Proy(mod)/vga_controller.vhd
+l0
+L5 1
+VSW3z87eYRlRCjm]lo4QgT0
+!s100 ji_P7J3QSac2VFBO;b2VL3
+R8
+31
+R18
+!i10b 1
+R19
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/FPGA/Proy(mod)/vga_controller.vhd|
+Z39 !s107 C:/FPGA/Proy(mod)/vga_controller.vhd|
+!i113 0
+R13
+R14
+Acomp
+R3
+R4
+R5
+DEx4 work 14 vga_controller 0 22 SW3z87eYRlRCjm]lo4QgT0
+!i122 4
+l43
+L17 88
+VW5z1[Mc>D7W2A6n35TEn>0
+!s100 InR<_U[WURDGN<=J29@E]1
+R8
+31
+R18
+!i10b 1
+R19
+R38
+R39
+!i113 0
+R13
+R14
