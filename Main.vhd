@@ -74,8 +74,8 @@ architecture comp of Main is
             Hsync_VGA  : out std_logic;
             Vsync_VGA  : out std_logic;
             R, G, B    : out std_logic_vector(3 downto 0);
-            pos_h      : out integer range 0 to 639;
-            pos_v      : out integer range 0 to 479
+            pos_h      : buffer integer range 0 to 639;
+            pos_v      : buffer integer range 0 to 479
         );
     end component;
 

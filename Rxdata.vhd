@@ -4,17 +4,18 @@ use ieee.numeric_std.all;
 
 entity Rxdata is
     port( 
-        pclk       : in std_logic;
-        VSYNC      : in std_logic;
-        HREF       : in std_logic;
-        clk        : in std_logic;
-        oclk       : out std_logic := '0';
-        D          : in std_logic_vector(7 downto 0);
-        dato       : out std_logic;
-        VSYNC_reg  : buffer std_logic;
-        HREF_reg   : buffer std_logic;
-        addr_wr    : out std_logic_vector(18 downto 0)
-    );
+		pclk       : in std_logic;
+		VSYNC      : in std_logic;
+		HREF       : in std_logic;
+		clk        : in std_logic;
+		D          : in std_logic_vector(7 downto 0);
+
+		oclk       : out std_logic := '0';
+		dato       : out std_logic;
+		VSYNC_reg  : buffer std_logic;
+		HREF_reg   : buffer std_logic;
+		addr_wr    : out std_logic_vector(18 downto 0)
+);
 end Rxdata;
 
 architecture comp of Rxdata is

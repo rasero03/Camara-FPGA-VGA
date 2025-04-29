@@ -6,6 +6,7 @@ entity VGA_controller is
     Port(
         clk        : in  STD_LOGIC; -- 50 MHz
         Data       : in  std_logic;
+
         Hsync_VGA  : out std_logic;
         Vsync_VGA  : out std_logic;
         R, G, B    : out STD_LOGIC_VECTOR (3 downto 0);

@@ -3,14 +3,15 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Memoria is
-    port(
-        clk      : in  std_logic;
-        ent      : in  std_logic;
-        sal      : out std_logic;
-        pos_h    : in  integer range 0 to 639;
-        pos_v    : in  integer range 0 to 479;
-        addr_wr  : in  std_logic_vector(18 downto 0)
-    );
+	port(
+		clk      : in  std_logic;
+		ent      : in  std_logic;
+		pos_h    : in  integer range 0 to 639;
+		pos_v    : in  integer range 0 to 479;
+		addr_wr  : in  std_logic_vector(18 downto 0);
+		
+		sal      : out std_logic
+	);
 end Memoria;
 
 architecture comp of Memoria is

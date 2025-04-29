@@ -1,0 +1,124 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_Main is
+end tb_Main;
+
+architecture TB of tb_Main is
+
+    -- Componentes a instanciar
+    component Main is 
+        port(
+            pclk: in std_logic;
+            VSYNC: in std_logic;
+            HREF: in std_logic;
+            clk: in std_logic;
+            D: in std_logic_vector(7 downto 0);
+				
+            Hsync_VGA : out std_logic;
+            Vsync_VGA : out std_logic;
+            oclk: out std_logic;
+            R,G,B : out std_logic_vector(3 downto 0)
+        );
+    end component;
+
+    -- Señales para testbench
+    signal pclk     : std_logic := '0';
+    signal VSYNC    : std_logic := '0';
+    signal HREF     : std_logic := '0';
+    signal clk      : std_logic := '0';
+    signal D        : std_logic_vector(7 downto 0) := (others => '0');
+	 
+    signal Hsync_VGA: std_logic;
+    signal Vsync_VGA: std_logic;
+    signal oclk     : std_logic;
+    signal R, G, B  : std_logic_vector(3 downto 0);
+
+    constant CLK_PERIOD : time := 20 ns;  -- 50 MHz
+    constant PCLK_PERIOD : time := 40 ns; -- 25 MHz (simulación)
+
+begin
+
+    -- Instancia de la entidad Main
+    uut: Main
+        port map(
+            pclk => pclk,
+            VSYNC => VSYNC,
+            HREF => HREF,
+            clk => clk,
+            D => D,
+            Hsync_VGA => Hsync_VGA,
+            Vsync_VGA => Vsync_VGA,
+            oclk => oclk,
+            R => R,
+            G => G,
+            B => B
+        );
+
+    -- Generador de reloj principal
+    clk_process : process
+    begin
+		wait for 10 ns;
+        while true loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    -- Generador de pclk (reloj de la cámara)
+    pclk_process : process
+    begin
+		wait for 10 ns;
+        while true loop
+            pclk <= '0';
+            wait for PCLK_PERIOD / 2;
+            pclk <= '1';
+            wait for PCLK_PERIOD / 2;
+        end loop;
+    end process;
+	 
+	 verticak :process
+	 begin
+		wait for 10 ns;
+		while true loop
+			VSYNC<='1';
+			wait for 3*784*(PCLK_PERIOD/2);
+			VSYNC<='0';
+			wait for 507*784*(PCLK_PERIOD/2);
+		end loop;
+	end process;
+	
+	horizontal:process
+	begin
+		wait for 10 ns;
+		while true loop
+			HREF<='0';
+			wait for 20*784*(PCLK_PERIOD/2);
+			for n in 0 to 480 loop
+				HREF<='1';
+				wait for 640*(PCLK_PERIOD/2);
+				HREF<='0';
+				wait for 144*(PCLK_PERIOD/2);
+			end loop;
+		end loop;
+	end process;
+	
+	adquisicion:process
+	begin
+	wait for 10 ns;
+		while true loop
+				D<=(others=>'0');
+				wait for PCLK_PERIOD/2;
+				D<=(others=>'1');
+				wait for PCLK_PERIOD/2;
+				D<=(others=>'1');
+				wait for PCLK_PERIOD/2;
+				D<=(others=>'0');
+				wait for PCLK_PERIOD/2;
+		end loop;
+	end process;
+
+end TB;

@@ -1,0 +1,76 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Memoria is
+    port(
+    clk: in std_logic; -- Señal de reloj
+	 reset: in std_logic;
+    flag: out std_logic; --flag de escritura terminada
+    ent: in std_logic; --entrada de bits
+    sal: out std_logic --salida de bits
+    );
+end Memoria;
+	 
+
+	 
+architecture comp of Memoria is
+
+	component Memory is -- Componente IP de memoria
+	port
+	(
+	clock: in std_logic := '1';
+	data: in std_logic_vector (0 downto 0);
+	rdaddress: in std_logic_vector (18 downto 0);
+	wraddress: in std_logic_vector (18 downto 0);
+	wren: in std_logic := '0';
+	q: out std_logic_vector (0 downto 0)
+	);
+	end component;
+    constant TAM_MEM: integer:= 307199; -- Tamaño de la memoria (número de registros)
+
+    signal s_wradd, s_radd:std_logic_vector (18 downto 0); -- Señales de dirección esc. y lec. (19 líneas para 10 pos.)
+    signal s_wrdata, s_rdata: std_logic_vector (0 downto 0); -- Señales de datos esc. y lec. (1 solo bit)
+    signal s_wr: std_logic; -- Señal de habilitación de escritura
+
+begin
+    s_wr<='1'; -- La escritura está siempre habilitada
+    -- Proceso que escribe el estado de los interruptores en la memoria
+esc_mem: process(clk)
+    variable indice_esc: integer;
+    begin
+        if (reset='0') then
+            flag <= '0';
+            indice_esc:=0; -- Se inicializa el índice a 0 en el reset
+        elsif rising_edge(clk) then
+            s_wradd<=std_logic_vector(to_unsigned(indice_esc, s_wradd'length)); -- Se establece la dir. escritura
+            s_wrdata(0)<=ent; -- Se estable el dato que se quiere escribir
+            if (indice_esc=TAM_MEM-1) then
+            flag <= '1';
+            indice_esc:=0; -- Si hemos llegado al final de la memoria pasamos a la primera posición
+            else
+            indice_esc:=indice_esc+1; -- Si no, incrementamos la dirección de escritura
+            end if;
+        end if;
+    end process;
+	 
+Memory_inst : Memory PORT MAP 
+	(clock => clk, data => s_wrdata, rdaddress => s_radd, wraddress => s_wradd, wren => s_wr, q => s_rdata);
+
+lee_mem:process(clk,reset)
+    variable indice_lec:integer;
+    begin
+        if (reset='0') then
+            indice_lec:=0; -- Se inicializa el indice de lectura a 0 en el reset
+            s_radd<=std_logic_vector(to_unsigned(indice_lec, s_radd'length)); -- Se establece la 1ª dir. de lectura
+        elsif rising_edge(clk) then
+            if (indice_lec=TAM_MEM-1) then -- Se incrementa el índice de lectura
+                indice_lec:=0; -- Si hemos llegado al final de la RAM ponemos a 0 el índice
+            else
+                indice_lec:=indice_lec+1; -- Si no, incrementamos el índice
+            end if;
+            sal<=s_rdata(0);
+            s_radd<=std_logic_vector(to_unsigned(indice_lec, s_radd'length)); -- Dirección lectura -> índice
+        end if;
+    end process;
+end comp;
